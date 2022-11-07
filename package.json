@@ -1,5 +1,5 @@
 {
-  "name": "next-javascript-starter",
+  "name": "firstclass",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,5 +21,17 @@
   "devDependencies": {
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0"
-  }
+  },
+  "description": "This project demonstrates how you can restrict content on your website to only those users who own an NFT from your collection.",
+  "main": "auth.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thirdweb-example/nft-gated-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thirdweb-example/nft-gated-website/issues"
+  },
+  "homepage": "https://github.com/thirdweb-example/nft-gated-website#readme"
 }

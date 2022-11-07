@@ -1,62 +1,62 @@
-import { useAddress, useLogin, Web3Button } from "@thirdweb-dev/react";
+import { 
+  useAddress,
+  useMetamask,
+  useContractAddress,
+  useClaimNFT, 
+  useNetwork,
+  useNetworkMismatch,
+  useUser,
+  useLogin,
+} from "@thirdweb-dev/react";
+
+import { ChainId } from "@thirdweb-dev/sdk";
 import styles from "../styles/Home.module.css";
 
 // replace this with your contract address
-const contractAddress = "0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF";
+const contractAddress = "0xDF9e9D5328eC0217f5Dc60CB28898e8c64EE6447";
 
 export default function Login() {
   const address = useAddress(); // Get the user's address
-  const login = useLogin(); // Sign in
+  const connectWithMetamask = useMetamask(); // Connect with Metamask
+
+  const [, switchNetwork] = useNetwork(); // Switch network
+  const networkMismatch = useNetworkMismatch(); // Check if the network is correct
+
+  // const editionDropContract = useContractAddress("0xDF9e9D5328eC0217f5Dc60CB28898e8c64EE6447"); // Get the EditionDrop contract
+
+  // const { mutate: claimNFT, isLoading: isClaiming } = 
+  //  useClaimNFT(contractAddress); // Claim NFT
+
+  const login = useLogin(); // Login
+  const { user } = useUser(); // Get the user
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Auth - NFT Gated Content</h1>
-      <p className={styles.explain}>
-        Serve exclusive content to users who own an NFT from your collection,
-        using{" "}
-        <b>
-          <a
-            href="https://portal.thirdweb.com/building-web3-apps/authenticating-users"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.purple}
+      {address ? (
+        <>
+          <p>Welcome, {address.slice(0,6)}...</p>
+
+          <button
+            className={styles.mainButton}
+            style={{ width: 256 }}
+            onClick={login}
+            >
+            Login
+            </button>
+        </>
+      ) : (
+        <>
+          <button
+            className={styles.mainButton}
+            style={{ width: "fit-content", paddingRight: 16, paddingLeft: 16 }}
+            onClick={() => connectWithMetamask()}
           >
-            Auth
-          </a>
-        </b>
-        !
-      </p>
+            Connect Wallet
+          </button>
+        </>
 
-      <p className={styles.explain}>
-        You cannot access the main page unless you own an NFT from our
-        collection!
-      </p>
+      )}
+      </div>
 
-      <hr className={styles.divider} />
-
-      <>
-        <p>Welcome, {address?.slice(0, 6)}...</p>
-
-        <button
-          className={styles.mainButton}
-          style={{ width: 256 }}
-          onClick={login}
-        >
-          Sign In
-        </button>
-
-        <p>
-          For demo purposes, you can claim an NFT from our collection below:
-        </p>
-
-        <Web3Button
-          contractAddress={contractAddress}
-          action={(contract) => contract.erc1155.claim(0, 1)}
-          accentColor="#F213A4"
-        >
-          Claim NFT
-        </Web3Button>
-      </>
-    </div>
   );
 }

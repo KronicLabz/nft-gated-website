@@ -44,7 +44,7 @@ export async function getServerSideProps(context) {
   // Instantiate our SDK
   const sdk = ThirdwebSDK.fromPrivateKey(
     process.env.THIRDWEB_AUTH_PRIVATE_KEY,
-    "mumbai"
+    "goerli"
   );
 
   // Check to see if the user has an NFT
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
   if (!hasNft) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "https://first-class-eta.vercel.app/about",
         permanent: false,
       },
     };

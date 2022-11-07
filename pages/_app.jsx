@@ -1,11 +1,10 @@
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import Head from "next/head";
-import ThirdwebGuideFooter from "../components/ThirdwebGuideFooter";
 import { domainName } from "../const/yourDetails";
 import "../styles/globals.css";
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mumbai;
+const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,11 +13,11 @@ function MyApp({ Component, pageProps }) {
       authConfig={{
         domain: domainName,
         authUrl: "/api/auth",
-        loginRedirect: "/",
+        loginRedirect: "https://first-class-eta.vercel.app/",
       }}
     >
       <Head>
-        <title>NFT Gated Website</title>
+        <title>First Class</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
@@ -26,7 +25,6 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-      <ThirdwebGuideFooter />
     </ThirdwebProvider>
   );
 }

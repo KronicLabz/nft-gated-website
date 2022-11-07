@@ -34,7 +34,7 @@
   cursor: pointer;
   text-align: center;
   padding: 5px;
-  color: #fff;
+  color: rgb(81, 156, 241);
   font-weight: 600;
 }
 
@@ -57,8 +57,8 @@
   height: 3rem;
   min-width: 3rem;
   font-size: 1rem;
-  background: #e5e5ea;
-  background-image: linear-gradient(to right, #cc25b3 0%, #418dff 101.52%);
+  background: rgb(81, 156, 241);
+  background-image: rgb(81, 156, 241);
   color: #fff;
   width: 180px;
   text-align: center;

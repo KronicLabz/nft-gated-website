@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       authConfig={{
         domain: domainName,
         authUrl: "/api/auth",
-        loginRedirect: "https://first-class-eta.vercel.app/",
+        loginRedirect: "/",
       }}
     >
       <Head>

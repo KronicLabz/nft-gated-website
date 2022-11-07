@@ -5,7 +5,7 @@ export default async function checkBalance(sdk, address) {
     contractAddress // replace this with your contract address
   );
 
-  const balance = await editionDrop.balanceOf(address, 0);
+  const balance = await editionDrop.balanceOf(address, 1);
 
   // gt = greater than
   return balance.gt(0);

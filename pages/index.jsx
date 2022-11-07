@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
   if (!hasNft) {
     return {
       redirect: {
-        destination: "https://first-class-eta.vercel.app/about",
+        destination: "/login",
         permanent: false,
       },
     };
